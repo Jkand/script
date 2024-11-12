@@ -31,7 +31,8 @@ git add -f release_kmpp_rv1103b_arm
 
 cd ../rockit/
 make __RELEASE__
-git add -f release_rockit-ko_rv1103b_arm_asm
+#git add -f release_rockit-ko_rv1103b_arm_asm
+git add -f release_rockit-ko_rv1103b_arm
 
 cd ../
 package_diff_files "sysdrv-drv_ko"
@@ -48,22 +49,24 @@ cd ../mpp
 make __RELEASE__
 
 cd ..
-git add -f rga/release_rga_rv1103b_arm-rockchip830-linux-uclibcgnueabihf/ \
-        isp/release_camera_engine_rkaiq_rv1103b_arm-rockchip830-linux-uclibcgnueabihf/ \
-        mpp/release_mpp_rv1103b_arm-rockchip830-linux-uclibcgnueabihf
+git add -f rga/release_rga_rv1103b_arm-rockchip831-linux-uclibcgnueabihf/ \
+        isp/release_camera_engine_rkaiq_rv1103b_arm-rockchip831-linux-uclibcgnueabihf/ \
+        mpp/release_mpp_rv1103b_arm-rockchip831-linux-uclibcgnueabihf
 package_diff_files "media"
 
 git commit -m "$datetime"
 
 cd ../media/rockit/rockit/
-git clean -dfx
-git add -f ./
-package_diff_files "media_rockit_rockit"
+#git clean -dfx
+#git add -f ./
+#package_diff_files "media_rockit_rockit"
+package_diff_files_commit "media_rockit_rockit" 6b26dd334bee69c40066844db4f29a99daa2cdff
 
-git commit -m "$datetime"
+#git commit -m "$datetime"
 
 cd ../../../
 
 #cd media/iva/iva
 #package_diff_files_commit "media_iva_iva" 28e2227337fa40d2550ce177e76b2a50f69714bf
 #cd ../../../
+
